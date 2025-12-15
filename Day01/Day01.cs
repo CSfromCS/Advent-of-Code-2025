@@ -47,11 +47,7 @@ public static class Day01
     static int GetCompletedRotations(int startPosition, int moveCount)
     {
         int totalNumber = startPosition + moveCount;
-        if (totalNumber > 0)
-        {
-            return totalNumber / 100;
-        }
-        return (-totalNumber / 100) + (startPosition != 0 ? 1 : 0);
+        return Math.Abs(totalNumber) / 100 + (startPosition != 0 && totalNumber <= 0 ? 1 : 0);    
 
         //1 -> 101 = 1
         //0-> 101 = 1
