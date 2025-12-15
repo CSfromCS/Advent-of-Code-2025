@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="Common\Common.csproj" />
+    <None Include="Day01\Day01.csproj" />
+  </ItemGroup>
+
 </Project>
