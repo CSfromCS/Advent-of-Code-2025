@@ -4,7 +4,7 @@ using Common;
 
 public static class Day01
 {
-    const string day = "Day01";
+    const string DAY = "Day01";
 
     public static void Main()
     {
@@ -25,7 +25,7 @@ public static class Day01
 
     static void day1part1()
     {
-        string[]? lines = InputReader.ReadLines(day, "input.txt");
+        string[]? lines = InputReader.ReadLines(DAY, "input.txt");
         int currentDialPosition = 50;
         int instructionMoveCount = 0;
 
@@ -62,7 +62,7 @@ public static class Day01
     }
     static void day1part2()
     {
-        string[]? lines = InputReader.ReadLines(day, "input.txt");
+        string[]? lines = InputReader.ReadLines(DAY, "input.txt");
 
         int currentDialPosition = 50;
         int instructionMoveCount = 0;

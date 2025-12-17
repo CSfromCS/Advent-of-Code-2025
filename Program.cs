@@ -12,8 +12,8 @@ namespace AdventOfCode2025
         {
             Console.WriteLine("Hello, Advent of Code 2025!");
 
-            Console.WriteLine("Please enter the day you want to run (e.g., 1):");
-            string input = Console.ReadLine();
+            Console.WriteLine("Please enter the DAY you want to run (e.g., 1):");
+            string input = "3";// Console.ReadLine();
             if (int.TryParse(input, out int dayNumber))
             {
                 string dayClassName = $"AdventOfCode2025.Day{dayNumber:D2}";
@@ -24,7 +24,7 @@ namespace AdventOfCode2025
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a valid day number.");
+                Console.WriteLine("Invalid input. Please enter a valid DAY number.");
             }
         }
     }
