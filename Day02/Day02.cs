@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
+using AdventOfCode2025.Common;
 using Common;
 
 namespace AdventOfCode2025
@@ -94,7 +95,7 @@ namespace AdventOfCode2025
 
             foreach (var range in ranges)
             {
-                Console.WriteLine($"Range: {range}");
+                Logger.Report($"Range: {range}");
                 parts = range.Split('-');
                 startNumber = long.Parse(parts[0]);
                 endNumber = long.Parse(parts[1]);
@@ -106,21 +107,21 @@ namespace AdventOfCode2025
 
                 for (int length = startLength; length <= endLength; length++)
                 {
-                    Console.WriteLine($"  Processing length: {length}");
+                    Logger.Log($"  Processing length: {length}");
 
                     for (int repeatSize = 1; repeatSize <= length/2; repeatSize++)
                     {
-                        Console.WriteLine($"    Processing repeat size: {repeatSize}");
+                        Logger.Log($"    Processing repeat size: {repeatSize}");
                         if (length % repeatSize != 0)
                         {
-                            Console.WriteLine($"        Skipping repeat size {repeatSize} for length {length} as it is not a multiple.");
+                            Logger.Log($"        Skipping repeat size {repeatSize} for length {length} as it is not a multiple.");
                             continue; //skip lengths that are not multiple of repeat size
                         }
                         for( long repeatNumber = startNumber/(long)Math.Pow(10, length - repeatSize); repeatNumber < (long)Math.Pow(10, repeatSize); repeatNumber++)
                         {
                             // Process each repeatNumber
                             currentNumber = long.Parse(string.Concat(Enumerable.Repeat(repeatNumber.ToString(), length / repeatSize)));
-                            Console.WriteLine($"        Processing repeat number: {repeatNumber}; Current number: {currentNumber}");
+                            Logger.Log($"        Processing repeat number: {repeatNumber}; Current number: {currentNumber}");
                             if (currentNumber > endNumber)
                             {
                                 break; //no need to continue if we are past the end number
@@ -130,13 +131,13 @@ namespace AdventOfCode2025
                             {
                                 sumOfInvalids += currentNumber;
                                 invalidNumbers.Add(currentNumber);
-                                Console.WriteLine($"            Invalid: {currentNumber}");
+                                Logger.Log($"            Invalid: {currentNumber}");
                             }
                         }
                     }
                 }
             }
-            Console.WriteLine($"Total Sum of Invalids: {sumOfInvalids}");
+            Logger.Report($"Total Sum of Invalids: {sumOfInvalids}");
         }
     }
 }

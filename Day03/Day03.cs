@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AdventOfCode2025.Common;
 using Common;
 
 namespace AdventOfCode2025
@@ -15,12 +16,13 @@ namespace AdventOfCode2025
             Console.WriteLine("Hello from Day03!");
             Day03 day03 = new Day03();
             day03.lines = InputReader.ReadLines("Day03", "input.txt").ToArray();
-            //day03.part1();
+            day03.part1();
             day03.part2();
         }
 
         public void part1()
         {
+            Logger.Report("Starting Part 1");
             int digit;
             int left, right;
             long total = 0;
@@ -49,13 +51,14 @@ namespace AdventOfCode2025
                     }
                 }
                 total += left*10 + right;
-                Console.WriteLine($"Left: {left}, Right: {right}, Total so far: {total}");
+                Logger.Log($"Left: {left}, Right: {right}, Total so far: {total}");
             }
-            Console.WriteLine($"Final Total: {total}");
+            Logger.Report($"Final Total: {total}");
         }
 
         public void part2()
         {
+            Logger.Report("Starting Part 2");
             int nextDigit;
             long total = 0, subtotal = 0;
 
@@ -72,7 +75,7 @@ namespace AdventOfCode2025
                 for(int i = 0; i < batteriesToConsider; i++)
                 {
                     var digit = int.Parse(line[lineLength - 1 - i].ToString());
-                    //Console.WriteLine($"    Adding initial digit: {digit}");
+                    Logger.Log($"    Adding initial digit: {digit}");
                     digits.AddFirst(digit);
                 }
                 lineLength -= batteriesToConsider;
@@ -120,9 +123,9 @@ namespace AdventOfCode2025
                     subtotal += digit;
                 }
                 total += subtotal;
-                Console.WriteLine($"Subtotal: {subtotal}, Total so far: {total}");
+                Logger.Report($"Subtotal: {subtotal}, Total so far: {total}");
             }
-            Console.WriteLine($"Final Total: {total}");
+            Logger.Report($"Final Total: {total}");
         }
     }
 }

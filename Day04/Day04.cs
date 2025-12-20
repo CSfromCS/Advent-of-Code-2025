@@ -53,7 +53,7 @@ namespace AdventOfCode2025
 
         public void part1()
         {
-            Console.WriteLine("Part 1");
+            Logger.Report("Part 1");
 
             countOfAdjacents = new int[rows][];
             for (int i = 0; i < rows; i++)
@@ -88,12 +88,12 @@ namespace AdventOfCode2025
                 }
                 Logger.Log();
             }
-            Console.WriteLine($"Accessible Rolls: {accessibleRolls}");
+            Logger.Report($"Accessible Rolls: {accessibleRolls}");
         }
 
         public void part2()
         {
-            Console.WriteLine("Part 2");
+            Logger.Report("Part 2");
             int accessibleRolls;
             int totalRolls = 0;
 

@@ -1,6 +1,8 @@
+
+using AdventOfCode2025.Common;
+using Common;
 namespace AdventOfCode2025;
 
-using Common;
 
 public static class Day01
 {
@@ -40,7 +42,7 @@ public static class Day01
                 countOfZeros++;
             }
         }
-        Console.WriteLine($"Day01 Part 1: {countOfZeros}");
+        Logger.Report($"Day01 Part 1: {countOfZeros}");
     }
 
     // Part 2
@@ -72,10 +74,10 @@ public static class Day01
         {
             instructionMoveCount = GetIntFromInstruction(line);
             int completedRotations = GetCompletedRotations(currentDialPosition, instructionMoveCount);
-            // Console.WriteLine($"Instruction {line}, from {currentDialPosition} moving {instructionMoveCount} completes {completedRotations} rotations, ends up in {GetEffectiveNumber(currentDialPosition + instructionMoveCount)}.");
+            Logger.Log($"Instruction {line}, from {currentDialPosition} moving {instructionMoveCount} completes {completedRotations} rotations, ends up in {GetEffectiveNumber(currentDialPosition + instructionMoveCount)}.");
             currentDialPosition = GetEffectiveNumber(currentDialPosition + instructionMoveCount);
             countOfZeros += completedRotations;
         }
-        Console.WriteLine($"Day01 Part 2: {countOfZeros}");
+        Logger.Report($"Day01 Part 2: {countOfZeros}");
     }
 }
